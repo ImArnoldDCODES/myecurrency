@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { companyLi, contactLi } from "../utils/data";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -18,8 +19,10 @@ export default function Footer() {
           <h1 className="text-[1.2rem] uppercase font-semibold">Company</h1>
           <div className="mt-8">
             {companyLi.map(({ title, link }, index) => (
-              <li className="text-[#ABABAB] mt-5" key={index}>
+              <li className="text-[#ABABAB] mt-5 cursor-pointer" key={index}>
+              <Link href={link && link}>
                 {title}
+              </Link>
               </li>
             ))}
           </div>

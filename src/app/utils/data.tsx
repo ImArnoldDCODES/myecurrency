@@ -62,7 +62,7 @@ export const products = [
 export const companyLi = [
   {
     title: "About",
-    link: "",
+    link: "/about",
   },
   {
     title: "Blog",
