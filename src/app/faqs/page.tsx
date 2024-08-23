@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { questions } from "./../utils/data";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FAQS: React.FC = ({}) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -17,7 +18,12 @@ const FAQS: React.FC = ({}) => {
   return (
     <main>
       <section className="bg-[#FBF9F2] w-full h-screen flex">
-        <div className="text-[#12305B] flex flex-col justify-center lg:ml-20 ml-8 gap-3">
+        <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-[#12305B] flex flex-col justify-center lg:ml-20 ml-8 gap-3"
+        >
           <span className="text-[#12305B]">We{"'"}re here to help you</span>
           <h1 className="font-bold md:text-[3.5rem] text-[1.5rem]">
             How can we assit?
@@ -36,7 +42,7 @@ const FAQS: React.FC = ({}) => {
               className="placeholder:text-[#12305B] text-[1.3rem] ml-3 outline-none w-full"
             />
           </div>
-        </div>
+        </motion.div>
       </section>
       <section className="my-14 lg:ml-20 lg:mr-60 mr-10 ml-5 h-full flex lg:flex-row flex-col">
         <div className="flex lg:w-[20%] mb-10">
@@ -58,9 +64,22 @@ const FAQS: React.FC = ({}) => {
               >
                 {data.question}
               </h1>
-              {activeIndex === index && (
-                  <span className="text-[#12305B]">{data?.answer}</span>
-                  )}
+              <AnimatePresence mode="wait">
+                {activeIndex === index && (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
+                  >
+                    <span className="text-[#12305B]">{data?.answer}</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           ))}
           <hr className="bg-[#BDBDBD] h-[2px]" />

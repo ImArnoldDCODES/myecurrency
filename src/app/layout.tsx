@@ -7,8 +7,8 @@ import Footer from "./components/footer";
 const poppins = Poppins({ subsets: ["latin-ext"], weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"] });
 
 export const metadata: Metadata = {
-  title: "MyEcurrency",
-  description: "MyEcurrency - Sell Bitcoins and giftcards instantly in Nigeria",
+  title: "sleepstiq",
+  description: "With the aid of our Melatonin Sleepstiq, we can assure you that you can get quality sleep",
 };
 
 export default function RootLayout({
