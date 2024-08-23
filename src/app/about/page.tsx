@@ -4,12 +4,8 @@ import Image from "next/image";
 import { testimonials } from "../utils/data";
 import { motion } from "framer-motion";
 
-interface QuantitySelectorProps {
-  initialQuantity?: number;
-}
-
-const About: React.FC<QuantitySelectorProps> = ({ initialQuantity = 1 }) => {
-  const [quantity, setQuantity] = useState<number>(initialQuantity);
+const About: React.FC = ({}) => {
+  const [quantity, setQuantity] = useState<number>(1);
   const pricePerUnit = 50;
   const totalPrice = quantity * pricePerUnit;
 
@@ -26,7 +22,7 @@ const About: React.FC<QuantitySelectorProps> = ({ initialQuantity = 1 }) => {
         <motion.div
           initial={{ x: -200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: .5 }}
+          transition={{ duration: 0.5 }}
           className="text-[#12305B] flex flex-col justify-center lg:ml-20 ml-10 gap-3"
         >
           <span className="text-[#12305B]">We{"'"}re here to help you</span>
